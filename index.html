@@ -1,0 +1,945 @@
+<!doctype html>
+<html lang="sk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kone Kmeť – detské tábory, koč s koňmi, firemné eventy | Turiec</title>
+<meta name="description" content="Kone Kmeť: letné tábory s koňmi pre deti, koč so záprahom na svadby, oslavy aj rozlúčky a firemné eventy v prírode pod Fatrou. Napíšte Adamovi.">
+<meta property="og:title" content="Kone Kmeť – tábory, koč, eventy">
+<meta property="og:description" content="Kone, deti, koč a poriadny kus prírody. Napíšte Adamovi.">
+<meta property="og:image" content="foto/kmetkone_mesto-11.jpg">
+<link rel="icon" href="logo/favicon.png">
+
+<!--
+  Súbory: foto/ (vybrané fotky, zmenšené pre web), logo/ (exporty z LOGA_KONEKMET), video/ (slučka z „KoneKmet Video S Logom“)
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+
+<script>
+/* Ak lokálna fotka chýba, skúsi zábery zo súčasného webu, potom ukáže štítok s názvom súboru. */
+function fb(img){
+  var next = img.getAttribute('data-fb');
+  if(next){ img.removeAttribute('data-fb'); img.src = next; return; }
+  img.onerror = null;
+  var name = (img.getAttribute('data-name') || '').trim();
+  var p = img.parentElement; p.classList.add('missing'); p.setAttribute('data-missing', name);
+  img.style.visibility = 'hidden';
+}
+</script>
+
+<style>
+:root{
+  --paper:#f6f0e4;
+  --paper-2:#efe5d2;
+  --ink:#23231a;
+  --ink-soft:#4a463c;
+  --olive:#3f4130;
+  --olive-2:#2b2c21;
+  --leather:#a26a16;
+  --leather-2:#86560f;
+  --hay:#e6bd6a;
+  --dapple:#9aa09d;
+  --sky:#dfe5e4;
+  --line:rgba(29,27,22,.14);
+  --radius:22px;
+  --serif:"Fraunces", Georgia, serif;
+  --sans:"Bricolage Grotesque", system-ui, sans-serif;
+  --hand:"Caveat", cursive;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{overflow-x:clip}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:17px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+/* zrnitosť papiera */
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:200;opacity:.35;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .3  0 0 0 0 .25  0 0 0 0 .15  0 0 0 .18 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+img{display:block;max-width:100%}
+a{color:inherit}
+.wrap{width:min(1240px,100% - 32px);margin-inline:auto}
+
+/* ---------- typografia ---------- */
+.display{
+  font-family:var(--serif);
+  font-variation-settings:"SOFT" 100,"WONK" 1;
+  font-weight:600;
+  line-height:.92;
+  letter-spacing:-.025em;
+}
+.display em{font-style:italic;font-weight:400;color:var(--leather)}
+.kicker{
+  font-family:var(--sans);font-weight:700;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;
+  display:inline-flex;align-items:center;gap:.6em;color:var(--leather-2)
+}
+.kicker::before{content:"";width:28px;height:2px;background:currentColor;border-radius:2px}
+.hand{font-family:var(--hand);font-weight:700}
+.lead{font-size:clamp(1.05rem,1.4vw,1.25rem);color:var(--ink-soft);max-width:56ch}
+
+/* ---------- tlačidlá ---------- */
+.btn{
+  --b:var(--ink);--c:var(--paper);
+  display:inline-flex;align-items:center;gap:.6em;
+  padding:1em 1.5em;border-radius:999px;border:2px solid var(--b);
+  background:var(--b);color:var(--c);text-decoration:none;font-weight:700;font-size:1rem;
+  transition:transform .25s cubic-bezier(.3,1.6,.5,1), background .2s, color .2s;
+  cursor:pointer;font-family:var(--sans);
+}
+.btn:hover{transform:translateY(-3px) rotate(-1deg)}
+.btn svg{width:1.1em;height:1.1em;transition:transform .25s}
+.btn:hover svg{transform:translateX(4px)}
+.btn.leather{--b:var(--leather);--c:#fff}
+.btn.ghost{background:transparent;color:var(--b)}
+.btn.ghost:hover{background:var(--b);color:var(--c)}
+.btn.light{--b:var(--paper);--c:var(--ink)}
+
+/* ---------- foto rámy ---------- */
+.ph{position:relative;overflow:hidden;background:var(--paper-2);border-radius:var(--radius)}
+.ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.ph:hover img{transform:scale(1.04)}
+.ph.missing{
+  background:repeating-linear-gradient(-45deg,var(--paper-2) 0 14px,#e8dcc4 14px 28px);
+}
+.ph.missing::after{
+  content:"📷 " attr(data-missing);position:absolute;inset:auto 12px 12px 12px;
+  font:600 .8rem var(--sans);color:var(--ink-soft);background:rgba(246,240,228,.9);padding:.4em .7em;border-radius:8px
+}
+.polaroid{
+  background:#fffdf8;padding:10px 10px 46px;border-radius:6px;
+  box-shadow:0 1px 0 rgba(0,0,0,.05),0 18px 40px -14px rgba(40,30,10,.35);
+  position:relative;
+}
+.polaroid .ph{border-radius:3px}
+.polaroid figcaption{
+  position:absolute;left:0;right:0;bottom:8px;text-align:center;
+  font-family:var(--hand);font-size:1.45rem;line-height:1;color:var(--ink-soft)
+}
+.tape::before{
+  content:"";position:absolute;top:-14px;left:50%;width:90px;height:28px;transform:translateX(-50%) rotate(-3deg);
+  background:rgba(230,189,106,.55);box-shadow:0 2px 6px rgba(0,0,0,.08);z-index:2
+}
+
+/* ---------- NAV ---------- */
+.nav{
+  position:fixed;top:14px;left:0;right:0;z-index:100;
+  transition:transform .35s;
+}
+.nav .bar{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  background:rgba(246,240,228,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border:1px solid var(--line);border-radius:999px;padding:8px 8px 8px 20px;
+}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;min-width:0}
+.logo img{height:30px;width:auto}
+@media (max-width:480px){.logo img{height:22px}}
+.logo .word{font-family:var(--serif);font-weight:700;font-size:1.35rem;letter-spacing:-.02em;font-variation-settings:"SOFT" 100,"WONK" 1;white-space:nowrap}
+.logo .word i{font-weight:400;color:var(--leather)}
+.logo.has-img .word{display:none}
+.nav ul{display:flex;gap:4px;list-style:none}
+.nav ul a{display:block;padding:.55em .95em;border-radius:999px;text-decoration:none;font-weight:600;font-size:.95rem}
+.nav ul a:hover{background:var(--paper-2)}
+.nav .btn{padding:.75em 1.2em;font-size:.95rem}
+@media (max-width:900px){ .nav ul{display:none} }
+@media (max-width:480px){ .nav .btn span.long{display:none} }
+
+/* ---------- HERO ---------- */
+.hero{padding:140px 0 60px;position:relative}
+.hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(3.2rem,8.2vw,7.4rem)}
+.hero h1 .row{display:block}
+.hero h1 .small{font-size:.42em;display:block;letter-spacing:-.01em;line-height:1.1;margin-top:.35em;font-weight:400;font-style:italic;color:var(--ink-soft)}
+.hero .lead{margin:28px 0 34px}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px}
+.hero .proof{display:flex;gap:26px;margin-top:38px;flex-wrap:wrap}
+.hero .proof div{font-size:.9rem;color:var(--ink-soft);line-height:1.3}
+.hero .proof b{display:block;font-family:var(--serif);font-size:2rem;color:var(--ink);font-weight:600;line-height:1}
+
+.collage{position:relative;aspect-ratio:1/1.08;min-height:420px}
+.collage .polaroid{position:absolute;width:56%}
+.collage .c1{top:2%;left:2%;transform:rotate(-6deg);z-index:2}
+.collage .c2{top:16%;right:0;transform:rotate(5deg);width:52%;z-index:1}
+.collage .c3{bottom:0;left:22%;transform:rotate(-1.5deg);width:54%;z-index:3}
+.collage .c1 .ph{aspect-ratio:4/5}
+.collage .c2 .ph{aspect-ratio:4/5}
+.collage .c3 .ph{aspect-ratio:5/4}
+.collage .polaroid{transition:transform .5s cubic-bezier(.3,1.4,.5,1)}
+.collage .polaroid:hover{z-index:5;transform:rotate(0) scale(1.04)}
+
+.badge{
+  position:absolute;width:150px;height:150px;right:6%;bottom:6%;z-index:4;
+  display:grid;place-items:center;
+}
+.badge svg.ring{position:absolute;inset:0;animation:spin 22s linear infinite}
+.badge .core{
+  width:78px;height:78px;border-radius:50%;background:var(--leather);display:grid;place-items:center;
+  box-shadow:0 10px 24px -8px rgba(162,106,22,.6)
+}
+.badge .core svg{width:44px;height:44px}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (max-width:900px){
+  .hero{padding-top:118px}
+  .hero-grid{grid-template-columns:1fr}
+  .collage{max-width:520px;margin:10px auto 0;width:100%}
+  .badge{width:118px;height:118px;right:0}
+}
+
+/* ---------- TICKER ---------- */
+.ticker{background:var(--olive);color:var(--paper);overflow:hidden;padding:18px 0;transform:rotate(-1.2deg);margin:40px -20px;box-shadow:0 10px 30px -18px rgba(0,0,0,.6)}
+.ticker .track{display:flex;width:max-content;animation:tick 38s linear infinite}
+.ticker span{font-family:var(--serif);font-size:clamp(1.4rem,3vw,2.3rem);font-weight:500;font-style:italic;padding:0 .8em;white-space:nowrap;display:flex;align-items:center;gap:.8em}
+.ticker span::after{content:"";width:.5em;height:.5em;background:var(--hay);border-radius:50%;display:inline-block}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* ---------- SEKCIE spoločné ---------- */
+section{position:relative}
+.sec{padding:110px 0}
+.sec-head{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:end;margin-bottom:56px}
+.sec-head h2{font-size:clamp(2.6rem,5.6vw,5rem)}
+@media (max-width:860px){.sec-head{grid-template-columns:1fr}.sec{padding:80px 0}}
+
+/* ---------- TRI SLUŽBY ---------- */
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.svc{
+  position:relative;border-radius:28px;overflow:hidden;min-height:540px;color:#fff;text-decoration:none;
+  display:flex;flex-direction:column;justify-content:flex-end;isolation:isolate;
+}
+.svc .ph{position:absolute;inset:0;border-radius:0;z-index:-2}
+.svc::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(20,18,12,0) 30%,rgba(20,18,12,.82) 100%)}
+.svc .num{position:absolute;top:22px;left:24px;font-family:var(--serif);font-size:1rem;font-weight:600;background:rgba(246,240,228,.92);color:var(--ink);border-radius:999px;padding:.25em .8em}
+.svc .body{padding:28px}
+.svc h3{font-family:var(--serif);font-size:2.4rem;line-height:1;font-weight:600;font-variation-settings:"SOFT" 100,"WONK" 1;margin-bottom:10px}
+.svc p{opacity:.88;font-size:1rem;margin-bottom:20px}
+.svc .go{display:inline-flex;align-items:center;gap:.5em;font-weight:700;background:var(--paper);color:var(--ink);padding:.7em 1.1em;border-radius:999px;transition:background .2s,gap .2s}
+.svc:hover .go{background:var(--hay);gap:.9em}
+.svc:hover .ph img{transform:scale(1.06)}
+.svc:nth-child(2){margin-top:46px}
+@media (max-width:960px){.services{grid-template-columns:1fr}.svc{min-height:440px}.svc:nth-child(2){margin-top:0}}
+
+/* ---------- TÁBOR ---------- */
+.camp{background:var(--sky);border-radius:48px;margin:0 12px}
+.camp-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:start}
+.camp h2{font-size:clamp(2.6rem,5.4vw,4.8rem)}
+.camp .lead{margin:22px 0 30px}
+.checklist{list-style:none;display:grid;gap:14px;margin-bottom:34px}
+.checklist li{display:flex;gap:14px;align-items:flex-start}
+.checklist li svg{flex:none;width:28px;height:28px;margin-top:1px}
+.checklist b{display:block}
+.checklist span{color:var(--ink-soft);font-size:.96rem}
+.price-card{
+  background:var(--paper);border-radius:24px;padding:26px;display:grid;grid-template-columns:auto 1fr;gap:6px 24px;align-items:center;
+  border:2px dashed rgba(63,65,48,.3);margin-bottom:26px
+}
+.price-card .big{font-family:var(--serif);font-size:3.6rem;line-height:1;font-weight:700;grid-row:span 2;color:var(--olive)}
+.price-card .big small{font-size:.35em;font-weight:500}
+.price-card .t{font-weight:700}
+.price-card .s{color:var(--ink-soft);font-size:.92rem}
+
+.camp-photos{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:86px;gap:14px}
+.camp-photos .ph{border-radius:18px}
+.camp-photos .a{grid-column:1/4;grid-row:1/5}
+.camp-photos .b{grid-column:4/7;grid-row:1/4}
+.camp-photos .c{grid-column:4/7;grid-row:4/7}
+.camp-photos .d{grid-column:1/4;grid-row:5/8}
+.camp-photos .e{grid-column:4/7;grid-row:7/9}
+.camp-photos .f{grid-column:1/4;grid-row:8/9}
+.camp-photos .note{
+  grid-column:1/4;grid-row:8/9;background:var(--hay);border-radius:18px;display:flex;align-items:center;justify-content:center;
+  font-family:var(--hand);font-size:1.7rem;line-height:1;text-align:center;padding:10px;transform:rotate(-2deg)
+}
+@media (max-width:960px){.camp-grid{grid-template-columns:1fr}.camp{border-radius:32px;margin:0 8px}}
+
+/* filmový pás */
+.strip-wrap{margin-top:70px}
+.strip-title{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:22px;flex-wrap:wrap}
+.strip-title h3{font-family:var(--serif);font-size:2rem;font-weight:600;font-style:italic}
+.strip-nav{display:flex;gap:8px}
+.strip-nav button{width:48px;height:48px;border-radius:50%;border:2px solid var(--ink);background:transparent;cursor:pointer;display:grid;place-items:center;transition:background .2s}
+.strip-nav button:hover{background:var(--ink);color:var(--paper)}
+.strip{display:flex;gap:26px;overflow-x:auto;scroll-snap-type:x mandatory;padding:20px 6px 34px;scrollbar-width:none}
+.strip::-webkit-scrollbar{display:none}
+.strip .polaroid{flex:0 0 clamp(220px,26vw,300px);scroll-snap-align:start;cursor:zoom-in}
+.strip .polaroid .ph{aspect-ratio:4/5}
+.strip .polaroid:nth-child(odd){transform:rotate(-2.2deg)}
+.strip .polaroid:nth-child(even){transform:rotate(1.8deg) translateY(10px)}
+.strip .polaroid:hover{transform:rotate(0) translateY(-6px)}
+.strip .polaroid{transition:transform .35s cubic-bezier(.3,1.4,.5,1)}
+
+/* ---------- VIDEO ---------- */
+.video-sec{background:var(--ink);color:var(--paper);padding:100px 0;margin-top:110px;border-radius:48px;margin-inline:12px}
+.vgrid{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}
+.vtext h2{font-size:clamp(2.6rem,5.6vw,5rem)}
+.vtext h2 em{color:var(--hay)}
+.vtext .lead{color:rgba(246,240,228,.75);margin:22px 0 32px}
+.vcard{position:relative;aspect-ratio:9/16;max-height:78vh;margin-inline:auto;width:100%;max-width:440px;border-radius:32px;overflow:hidden;background:#111;box-shadow:0 40px 80px -30px rgba(0,0,0,.8);transform:rotate(2deg)}
+.vcard video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.vcard .tag{position:absolute;top:18px;left:18px;display:flex;align-items:center;gap:8px;background:rgba(246,240,228,.92);color:var(--ink);padding:.45em .9em;border-radius:999px;font-weight:700;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase}
+.vcard .tag i{width:8px;height:8px;border-radius:50%;background:#d6452c;animation:pulse 1.4s infinite}
+.vcard .toggle{position:absolute;bottom:18px;right:18px;width:50px;height:50px;border-radius:50%;border:0;background:rgba(246,240,228,.92);cursor:pointer;display:grid;place-items:center}
+@keyframes pulse{50%{opacity:.25}}
+@media (max-width:860px){.vgrid{grid-template-columns:1fr;gap:44px}.video-sec{border-radius:32px;margin-inline:8px;padding:70px 0}.vcard{max-width:340px}}
+
+/* ---------- KOČ ---------- */
+.coach{background:var(--olive);color:var(--paper);margin-top:110px;border-radius:48px 48px 0 0;overflow:hidden}
+.coach .kicker{color:var(--hay)}
+.coach .lead{color:rgba(246,240,228,.78)}
+.coach h2{font-size:clamp(2.8rem,6vw,5.4rem)}
+.coach h2 em{color:var(--hay)}
+.coach-hero{display:grid;grid-template-columns:1.25fr 1fr;gap:22px;margin-bottom:22px}
+.coach-hero .ph{aspect-ratio:3/2}
+.coach-hero .ph.tall{aspect-ratio:auto;height:100%}
+.occasions{display:flex;flex-wrap:wrap;gap:10px;margin:30px 0 36px}
+.occasions span{border:1.5px solid rgba(246,240,228,.35);border-radius:999px;padding:.5em 1em;font-weight:600;font-size:.95rem}
+.coach-row{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.coach-row .ph{aspect-ratio:4/5}
+.coach-quote{
+  grid-column:span 2;background:var(--leather);border-radius:var(--radius);padding:34px;display:flex;flex-direction:column;justify-content:space-between;gap:20px
+}
+.coach-quote p{font-family:var(--serif);font-size:clamp(1.5rem,2.4vw,2.1rem);line-height:1.15;font-style:italic;font-weight:400}
+.coach-quote .who{font-weight:700;font-size:.95rem;opacity:.9}
+@media (max-width:960px){
+  .coach-hero{grid-template-columns:1fr}
+  .coach-row{grid-template-columns:1fr 1fr}
+  .coach{border-radius:32px 32px 0 0}
+}
+
+/* ---------- EVENTY ---------- */
+.events{background:var(--olive);color:var(--paper);padding-top:20px}
+.events-inner{background:var(--paper);color:var(--ink);border-radius:40px;padding:clamp(28px,5vw,70px);display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.events h2{font-size:clamp(2.6rem,5vw,4.4rem)}
+.ev-list{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:30px 0 34px}
+.ev-list div{background:var(--paper-2);border-radius:18px;padding:18px}
+.ev-list b{display:block;font-family:var(--serif);font-size:1.25rem;font-weight:600;margin-bottom:4px}
+.ev-list span{font-size:.92rem;color:var(--ink-soft);line-height:1.45;display:block}
+.ev-photos{position:relative;min-height:520px}
+.ev-photos .p1{position:absolute;inset:0 18% 18% 0}
+.ev-photos .p2{position:absolute;right:0;bottom:0;width:48%;aspect-ratio:4/5;border:8px solid var(--paper)}
+.ev-photos .sticker{
+  position:absolute;left:-14px;bottom:8%;background:var(--hay);color:var(--ink);font-family:var(--hand);font-size:1.6rem;line-height:1.05;
+  padding:14px 18px;border-radius:14px;transform:rotate(-5deg);max-width:220px;box-shadow:0 12px 26px -12px rgba(0,0,0,.35);z-index:2
+}
+.events .pad{padding-bottom:110px}
+@media (max-width:960px){.events-inner{grid-template-columns:1fr}.ev-photos{min-height:440px}.ev-list{grid-template-columns:1fr}}
+
+/* ---------- ADAM ---------- */
+.adam-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:center}
+.adam-photo{position:relative}
+.adam-photo .ph{aspect-ratio:4/5;border-radius:220px 220px 26px 26px}
+.adam-photo .mini{position:absolute;width:42%;right:-6%;bottom:-6%;transform:rotate(4deg)}
+.adam-photo .mini .ph{aspect-ratio:4/5;border-radius:3px}
+.adam h2{font-size:clamp(2.8rem,6vw,5.6rem)}
+.adam .roles{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 26px}
+.adam .roles span{background:var(--paper-2);border-radius:999px;padding:.4em .95em;font-weight:600;font-size:.9rem}
+.adam p + p{margin-top:14px}
+.adam .sign{font-family:var(--hand);font-size:2.6rem;color:var(--leather);margin-top:20px;line-height:1;transform:rotate(-3deg);display:inline-block}
+.pull{
+  margin:34px 0 0;padding:24px 0 0;border-top:2px solid var(--ink);
+  font-family:var(--serif);font-size:clamp(1.5rem,2.6vw,2.2rem);line-height:1.15;font-style:italic
+}
+@media (max-width:960px){.adam-grid{grid-template-columns:1fr;gap:70px}.adam-photo{max-width:460px}}
+
+/* ---------- AKO TO FUNGUJE ---------- */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;counter-reset:s}
+.step{border-top:2px solid var(--ink);padding-top:22px;counter-increment:s}
+.step::before{content:"0" counter(s);font-family:var(--serif);font-size:4rem;line-height:1;font-weight:300;color:var(--leather);display:block;margin-bottom:14px}
+.step h3{font-family:var(--serif);font-size:1.7rem;font-weight:600;margin-bottom:8px}
+.step p{color:var(--ink-soft)}
+.safety{margin-top:60px;display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center;background:var(--paper-2);border-radius:28px;padding:22px}
+.safety .ph{width:170px;aspect-ratio:1;border-radius:20px}
+.safety h4{font-family:var(--serif);font-size:1.6rem;font-weight:600;margin-bottom:6px}
+.safety p{color:var(--ink-soft)}
+@media (max-width:860px){.steps{grid-template-columns:1fr}.safety{grid-template-columns:1fr}.safety .ph{width:100%;aspect-ratio:16/9}}
+
+/* ---------- KONTAKT ---------- */
+.contact{background:var(--ink);color:var(--paper);border-radius:48px 48px 0 0;overflow:hidden;position:relative}
+.contact .bgimg{position:absolute;inset:0;opacity:.18;border-radius:0}
+.contact .bgimg img{filter:grayscale(1)}
+.contact .wrap{position:relative}
+.contact-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:60px}
+.contact h2{font-size:clamp(3rem,7vw,6.4rem)}
+.contact h2 em{color:var(--hay)}
+.contact .lead{color:rgba(246,240,228,.75);margin:24px 0 36px}
+.direct{display:grid;gap:14px}
+.direct a{
+  display:flex;align-items:center;gap:16px;text-decoration:none;padding:18px 22px;border-radius:20px;
+  background:rgba(246,240,228,.07);border:1px solid rgba(246,240,228,.14);transition:background .2s,transform .25s
+}
+.direct a:hover{background:rgba(246,240,228,.14);transform:translateX(6px)}
+.direct .ic{width:48px;height:48px;border-radius:50%;background:var(--leather);display:grid;place-items:center;flex:none}
+.direct .ic svg{width:22px;height:22px}
+.direct small{display:block;opacity:.6;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase}
+.direct b{font-size:1.25rem;font-family:var(--serif);font-weight:600}
+
+form.card{background:var(--paper);color:var(--ink);border-radius:32px;padding:clamp(22px,3.5vw,40px);box-shadow:0 40px 80px -30px rgba(0,0,0,.6)}
+form.card h3{font-family:var(--serif);font-size:2rem;font-weight:600;line-height:1.05;margin-bottom:6px}
+form.card .sub{color:var(--ink-soft);margin-bottom:22px;font-size:.98rem}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.chips input{position:absolute;opacity:0;pointer-events:none}
+.chips label{
+  cursor:pointer;border:2px solid var(--ink);border-radius:999px;padding:.55em 1.05em;font-weight:700;font-size:.95rem;
+  display:inline-flex;align-items:center;gap:.45em;transition:background .15s,color .15s,transform .2s;user-select:none
+}
+.chips label:hover{transform:translateY(-2px)}
+.chips input:checked + label{background:var(--ink);color:var(--paper)}
+.chips input:focus-visible + label{outline:3px solid var(--hay);outline-offset:2px}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fields .full{grid-column:1/-1}
+.field label{display:block;font-weight:700;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px;color:var(--ink-soft)}
+.field input,.field textarea,.field select{
+  width:100%;font:inherit;font-size:1rem;color:var(--ink);background:#fffdf8;border:1.5px solid var(--line);border-radius:14px;padding:.85em 1em;
+  transition:border-color .2s, box-shadow .2s
+}
+.field textarea{min-height:120px;resize:vertical}
+.field input:focus,.field textarea:focus,.field select:focus{outline:none;border-color:var(--leather);box-shadow:0 0 0 4px rgba(162,106,22,.2)}
+form.card .btn{width:100%;justify-content:center;margin-top:20px;font-size:1.05rem;padding:1.1em}
+.form-note{font-size:.85rem;color:var(--ink-soft);margin-top:12px;text-align:center}
+.form-ok{display:none;text-align:center;padding:40px 10px}
+.form-ok b{font-family:var(--serif);font-size:2rem;display:block;margin-bottom:8px}
+@media (max-width:960px){.contact-grid{grid-template-columns:1fr}.contact{border-radius:32px 32px 0 0}}
+@media (max-width:520px){.fields{grid-template-columns:1fr}}
+
+/* ---------- FOOTER ---------- */
+footer{background:var(--ink);color:rgba(246,240,228,.7);padding:70px 0 110px;border-top:1px solid rgba(246,240,228,.1)}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:30px;align-items:flex-end}
+.foot .huge{font-family:var(--serif);font-size:clamp(3.4rem,12vw,10rem);line-height:.85;color:var(--paper);font-weight:700;letter-spacing:-.04em;font-variation-settings:"SOFT" 100,"WONK" 1}
+.foot .huge i{color:var(--leather);font-weight:400}
+.flogo{width:min(320px,70vw);height:auto;opacity:.95}
+.foot nav{display:flex;gap:18px;flex-wrap:wrap}
+.foot nav a{text-decoration:none;font-weight:600}
+.foot nav a:hover{color:var(--hay)}
+.copy{margin-top:40px;font-size:.85rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+/* ---------- mobil sticky CTA ---------- */
+.mcta{
+  position:fixed;left:12px;right:12px;bottom:12px;z-index:120;display:none;gap:8px;
+  background:rgba(29,27,22,.92);backdrop-filter:blur(10px);padding:8px;border-radius:999px;
+  transform:translateY(120%);transition:transform .35s
+}
+.mcta.on{transform:none}
+.mcta a{flex:1;justify-content:center;padding:.85em 1em;font-size:.95rem}
+@media (max-width:760px){.mcta{display:flex}}
+
+/* ---------- lightbox ---------- */
+.lb{position:fixed;inset:0;z-index:300;background:rgba(20,18,12,.92);display:none;align-items:center;justify-content:center;padding:20px;cursor:zoom-out}
+.lb.on{display:flex}
+.lb img{max-height:88vh;max-width:min(1100px,100%);border-radius:10px;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.lb p{position:absolute;bottom:24px;left:0;right:0;text-align:center;color:var(--paper);font-family:var(--hand);font-size:1.8rem}
+
+/* ---------- reveal ---------- */
+.rv{opacity:0;transform:translateY(34px);transition:opacity .9s ease, transform .9s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .rv{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<header class="nav" id="nav">
+  <div class="wrap bar">
+    <a href="#top" class="logo" aria-label="Kone Kmeť – domov"><img src="logo/konekmet-logo-dark.png" alt="Kone Kmeť" width="700" height="120"></a>
+    <ul>
+      <li><a href="#tabory">Tábory</a></li>
+      <li><a href="#koc">Koč</a></li>
+      <li><a href="#eventy">Eventy</a></li>
+      <li><a href="#adam">Kto som</a></li>
+    </ul>
+    <a href="#kontakt" class="btn leather"><span class="long">Napíšte</span> Adamovi
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="kicker rv">Turiec · pod Fatrou · od jari do Vianoc</span>
+      <h1 class="display rv" style="margin-top:18px">
+        <span class="row">Kone, deti,</span>
+        <span class="row"><em>koč</em> a lúka.</span>
+        <span class="small">Zvyšok dorobí príroda.</span>
+      </h1>
+      <p class="lead rv">Som Adam a celý život robím dve veci: bavím ľudí a starám sa o kone. V Kone Kmeť som to spojil. Letné tábory, kde deti prvýkrát sedia v sedle. Koč so záprahom, ktorý z obyčajného dňa urobí ten váš. A firemné akcie, po ktorých sa kolegovia konečne začnú rozprávať.</p>
+      <div class="ctas rv">
+        <a href="#kontakt" class="btn leather">Dohodnime sa
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="#tabory" class="btn ghost">Čo robíme</a>
+      </div>
+      <div class="proof rv">
+        <div><b>3</b>spôsoby, ako<br>k nám prísť</div>
+        <div><b>20+</b>rokov na javisku<br>a s mikrofónom</div>
+        <div><b>1</b>vášeň od detstva:<br>kone</div>
+      </div>
+    </div>
+
+    <div class="collage rv">
+      <figure class="polaroid tape c1">
+        <div class="ph"><img src="foto/tabor_august-23.jpg" data-name="tabor_august-23" onerror="fb(this)" alt="Dievčatko na koni, Adam ho vedie po lúke"></div>
+        <figcaption>prvá jazda!</figcaption>
+      </figure>
+      <figure class="polaroid c2">
+        <div class="ph"><img src="foto/kmetkone_mesto-4.jpg" data-name="kmetkone_mesto-4" onerror="fb(this)" alt="Adam na koči v cylindri"></div>
+        <figcaption>kočiš v službe</figcaption>
+      </figure>
+      <figure class="polaroid c3">
+        <div class="ph"><img src="foto/tabor_august-11.jpg" data-name="tabor_august-11" onerror="fb(this)" alt="Deti opekajú pri ohni na lúke"></div>
+        <figcaption>opekačka o 17:00</figcaption>
+      </figure>
+      <div class="badge" aria-hidden="true">
+        <svg class="ring" viewBox="0 0 150 150">
+          <defs><path id="circ" d="M75,75 m-58,0 a58,58 0 1,1 116,0 a58,58 0 1,1 -116,0"/></defs>
+          <text font-family="Bricolage Grotesque" font-weight="700" font-size="13" letter-spacing="3.2" fill="#23231a">
+            <textPath href="#circ">TÁBORY · KOČ · EVENTY · KONE KMEŤ ·</textPath>
+          </text>
+        </svg>
+        <div class="core"><img src="logo/konekmet-mark-white.png" alt="" style="width:46px"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TICKER ================= -->
+<div class="ticker" aria-hidden="true">
+  <div class="track">
+    <span>letné tábory s koňmi</span><span>koč na svadbu</span><span>opekačka pri ohni</span><span>teambuilding na lúke</span><span>prvá jazda v sedle</span><span>mestské slávnosti</span><span>rozlúčka so záprahom</span><span>moderátor v balíku</span>
+    <span>letné tábory s koňmi</span><span>koč na svadbu</span><span>opekačka pri ohni</span><span>teambuilding na lúke</span><span>prvá jazda v sedle</span><span>mestské slávnosti</span><span>rozlúčka so záprahom</span><span>moderátor v balíku</span>
+  </div>
+</div>
+
+<!-- ================= SLUŽBY ================= -->
+<section class="sec" id="sluzby">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="kicker rv">Čo pre vás robíme</span>
+        <h2 class="display rv" style="margin-top:14px">Vyberte si,<br><em>ako</em> prídete.</h2>
+      </div>
+      <p class="lead rv">Tri cesty, jeden prístup: poriadne, bezpečne a s humorom. Ťuknite na to, čo vás zaujíma – v kontaktnom formulári to už bude predvyplnené.</p>
+    </div>
+
+    <div class="services">
+      <a href="#kontakt" class="svc rv" data-pick="tabor">
+        <div class="ph"><img src="foto/tabor_august-27.jpg" data-name="tabor_august-27" onerror="fb(this)" alt="Dievča na koni v prilbe a vešte"></div>
+        <span class="num">01 · deti</span>
+        <div class="body">
+          <h3>Detský tábor</h3>
+          <p>Týždeň s koňmi, ohňom a kamarátmi. Deti sa naučia jazdiť aj sa o koňa postarať.</p>
+          <span class="go">Chcem miesto <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a href="#kontakt" class="svc rv" data-pick="koc">
+        <div class="ph"><img src="foto/kmetkone_mesto-11.jpg" data-name="kmetkone_mesto-11" onerror="fb(this)" alt="Koč so záprahom dvoch sivákov pred bielou budovou"></div>
+        <span class="num">02 · oslavy</span>
+        <div class="body">
+          <h3>Koč s koňmi</h3>
+          <p>Svadba, výročie, mestská slávnosť aj dôstojná rozlúčka. Záprah, ktorý si ľudia pamätajú.</p>
+          <span class="go">Rezervovať koč <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a href="#kontakt" class="svc rv" data-pick="event">
+        <div class="ph"><img src="foto/tabor_august-6.jpg" data-name="tabor_august-6" onerror="fb(this)" alt="Skupina pri ohni na lúke"></div>
+        <span class="num">03 · firmy</span>
+        <div class="body">
+          <h3>Firemný event</h3>
+          <p>Teambuilding na lúke, kone, oheň a moderátor, ktorý vie rozhýbať aj účtovníkov.</p>
+          <span class="go">Naplánovať akciu <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TÁBOR ================= -->
+<section class="camp sec" id="tabory">
+  <div class="wrap">
+    <div class="camp-grid">
+      <div>
+        <span class="kicker rv">Letný tábor s koňmi</span>
+        <h2 class="display rv" style="margin-top:14px">Týždeň, po ktorom<br>príde domov <em>iné dieťa.</em></h2>
+        <p class="lead rv">Ráno kefa a hrebeň, doobeda sedlo, poobede potok a večer oheň. Deti sa u nás nenaučia len jazdiť – naučia sa, že kôň nie je hračka, ale parťák, ktorému treba rozumieť.</p>
+
+        <ul class="checklist rv">
+          <li><svg viewBox="0 0 28 28"><circle cx="14" cy="14" r="13" fill="#e6bd6a"/><path d="M8.5 14.5l3.6 3.4 7.4-8" fill="none" stroke="#1d1b16" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div><b>Základy jazdy na pokojných koňoch</b><span>Na lonži a vo vedení, vždy s prilbou a chráničom chrbta.</span></div></li>
+          <li><svg viewBox="0 0 28 28"><circle cx="14" cy="14" r="13" fill="#e6bd6a"/><path d="M8.5 14.5l3.6 3.4 7.4-8" fill="none" stroke="#1d1b16" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div><b>Starostlivosť o kone</b><span>Čistenie, kŕmenie, sedlanie – a prečo sa koňovi nechodí odzadu.</span></div></li>
+          <li><svg viewBox="0 0 28 28"><circle cx="14" cy="14" r="13" fill="#e6bd6a"/><path d="M8.5 14.5l3.6 3.4 7.4-8" fill="none" stroke="#1d1b16" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div><b>Príroda namiesto obrazovky</b><span>Potok, lúka, opekačka, hry a pohyb celý deň.</span></div></li>
+          <li><svg viewBox="0 0 28 28"><circle cx="14" cy="14" r="13" fill="#e6bd6a"/><path d="M8.5 14.5l3.6 3.4 7.4-8" fill="none" stroke="#1d1b16" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div><b>Tanec, hudba a smiech</b><span>Lebo vedúci je tanečník a moderátor. Nuda nehrozí.</span></div></li>
+        </ul>
+
+        <div class="price-card rv">
+          <div class="big">235<small> €</small></div>
+          <div class="t">za týždeň · denný tábor</div>
+          <div class="s">Kone, strava a celý program v cene. Martin a ranč Kone Kmeť.</div>
+        </div>
+
+        <div class="rv" style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
+          <a href="#kontakt" class="btn" data-pick="tabor">Držte mi miesto na leto 2027
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <span class="hand" style="font-size:1.5rem;color:var(--ink-soft)">termíny zverejníme v predstihu ↑</span>
+        </div>
+      </div>
+
+      <div class="camp-photos">
+        <div class="ph a rv"><img src="foto/tabor_august-21.jpg" data-name="tabor_august-21" onerror="fb(this)" alt="Dievčatko na koni s rukami nad hlavou, cvičenie rovnováhy"></div>
+        <div class="ph b rv"><img src="foto/tabor_august-9.jpg" data-name="tabor_august-9" onerror="fb(this)" alt="Deti s prútmi pri ohni"></div>
+        <div class="ph c rv"><img src="foto/tabor_august-15.jpg" data-name="tabor_august-15" onerror="fb(this)" alt="Chlapec na koni v prilbe"></div>
+        <div class="ph d rv"><img src="foto/tabor_august-33.jpg" data-name="tabor_august-33" onerror="fb(this)" alt="Chlapec skúma potok"></div>
+        <div class="ph e rv"><img src="foto/tabor_august-13.jpg" data-name="tabor_august-13" onerror="fb(this)" alt="Jazda vo vedení po lúke pod horami" style="object-position:50% 45%"></div>
+        <div class="note rv">bahno v čižmách = dobrý deň</div>
+      </div>
+    </div>
+
+    <!-- filmový pás -->
+    <div class="strip-wrap">
+      <div class="strip-title">
+        <h3 class="rv">Z tábora, august</h3>
+        <div class="strip-nav">
+          <button type="button" aria-label="Späť" data-dir="-1"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
+          <button type="button" aria-label="Ďalej" data-dir="1"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </div>
+      </div>
+      <div class="strip" id="strip">
+        <figure class="polaroid"><div class="ph"><img src="foto/tabor_august-6.jpg" data-name="tabor_august-6" onerror="fb(this)" alt="Deti na lavičke opekajú"></div><figcaption>kto má najdlhší prút?</figcaption></figure>
+        <figure class="polaroid"><div class="ph"><img src="foto/tabor_august-17.jpg" data-name="tabor_august-17" onerror="fb(this)" alt="Adam vysvetľuje dievčaťu na koni"></div><figcaption>krok za krokom</figcaption></figure>
+        <figure class="polaroid"><div class="ph"><img src="foto/tabor_august.jpg" data-name="tabor_august" onerror="fb(this)" alt="Adam pri stole s deťmi"></div><figcaption>desiata u Adama</figcaption></figure>
+        <figure class="polaroid"><div class="ph"><img src="foto/tabor_august-27.jpg" data-name="tabor_august-27" onerror="fb(this)" alt="Dievča na koni"></div><figcaption>už sama v sedle</figcaption></figure>
+        <figure class="polaroid"><div class="ph"><img src="foto/tabor_august-11.jpg" data-name="tabor_august-11" onerror="fb(this)" alt="Dievčatá pri ohni"></div><figcaption>ešte minútku…</figcaption></figure>
+        <figure class="polaroid"><div class="ph"><img src="foto/tabor_august-15.jpg" data-name="tabor_august-15" onerror="fb(this)" alt="Chlapec na koni"></div><figcaption>vážna vec</figcaption></figure>
+        <figure class="polaroid"><div class="ph"><img src="foto/tabor_august-33.jpg" data-name="tabor_august-33" onerror="fb(this)" alt="Chlapec v potoku"></div><figcaption>expedícia potok</figcaption></figure>
+        <figure class="polaroid"><div class="ph"><img src="foto/tabor_august-21.jpg" data-name="tabor_august-21" onerror="fb(this)" alt="Dievčatko s rukami hore"></div><figcaption>a teraz bez rúk!</figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= VIDEO ================= -->
+<section class="video-sec" aria-label="Video">
+  <div class="wrap vgrid">
+    <div class="vtext">
+      <span class="kicker rv" style="color:var(--hay)">Bežný deň na ranči</span>
+      <h2 class="display rv" style="margin-top:14px">Kefa, kávička,<br>postroj a <em>ide sa.</em></h2>
+      <p class="lead rv">Ráno začína pri koňoch, nie pri mobile. Vyčistiť, nakŕmiť, skontrolovať kopytá, zapriahnuť – a potom von na cestu. Presne takto vyzerá starostlivosť, ktorá sa potom prejaví na každej jazde, svadbe aj tábore.</p>
+      <a href="#kontakt" class="btn light rv">Chcem to zažiť
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <div class="vcard rv">
+      <video id="loop" autoplay muted loop playsinline preload="metadata" poster="video/poster.jpg" aria-label="Video: ranná starostlivosť o kone a jazda kočom">
+        <source src="video/konekmet-loop.webm" type="video/webm">
+        <source src="video/konekmet-loop.mp4" type="video/mp4">
+      </video>
+      <span class="tag"><i></i> Na ranči</span>
+      <button class="toggle" id="vtoggle" type="button" aria-label="Pozastaviť video">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="#23231a"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ================= KOČ ================= -->
+<section class="coach sec" id="koc">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="kicker rv">Koč so záprahom</span>
+        <h2 class="display rv" style="margin-top:14px">Príjazd, ktorý<br><em>nik nenatočí</em><br>len raz.</h2>
+      </div>
+      <div>
+        <p class="lead rv">Dva sivé kone, kožené sedadlá a kočiš v cylindri. Prídeme na svadbu, na výročie, na mestské slávnosti, na fotenie – aj tam, kde treba ticho a dôstojnosť. Trasu, čas aj výzdobu doladíme spolu.</p>
+        <div class="occasions rv">
+          <span>💍 svadby</span><span>🥂 výročia a oslavy</span><span>🎪 mestské akcie</span><span>📸 fotenia</span><span>🕊️ posledná rozlúčka</span><span>🎄 advent a Mikuláš</span>
+        </div>
+        <a href="#kontakt" class="btn light rv" data-pick="koc">Overiť voľný termín
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+
+    <div class="coach-hero">
+      <div class="ph rv"><img src="foto/kmetkone_mesto-23.jpg" data-name="kmetkone_mesto-23" onerror="fb(this)" alt="Koč so záprahom z profilu pod smrekmi"></div>
+      <div class="ph tall rv"><img src="foto/kmetkone_mesto-27.jpg" data-name="kmetkone_mesto-27" onerror="fb(this)" alt="Dve hlavy koní v postroji v protisvetle"></div>
+    </div>
+    <div class="coach-row">
+      <div class="ph rv"><img src="foto/kmetkone_mesto-4.jpg" data-name="kmetkone_mesto-4" onerror="fb(this)" alt="Kočiš v cylindri drží opraty"></div>
+      <div class="coach-quote rv">
+        <p>„Kôň nie je rekvizita. Keď je pokojný a spokojný, je to na celej akcii vidieť.“</p>
+        <span class="who">— Adam, kočiš a chovateľ</span>
+      </div>
+      <div class="ph rv"><img src="foto/kmetkone-40.jpg" data-name="kmetkone-40" onerror="fb(this)" alt="Adam zapriaha koňa pri zábradlí"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EVENTY ================= -->
+<section class="events" id="eventy">
+  <div class="wrap pad">
+    <div class="events-inner">
+      <div>
+        <span class="kicker rv">Firemné eventy & teambuilding</span>
+        <h2 class="display rv" style="margin-top:14px">Vypnite notebooky.<br><em>Zapnite lúku.</em></h2>
+        <p class="lead rv" style="margin-top:20px">Zoberiem váš tím von – ku koňom, k ohňu, do pohybu. Program poskladáme na mieru a moderovanie máte v cene, lebo na pódiu sa pohybujem dvadsať rokov.</p>
+        <div class="ev-list rv">
+          <div><b>Kone zblízka</b><span>Ukážka práce s koňom, prvé kroky v sedle, vozenie kočom.</span></div>
+          <div><b>Hry v prírode</b><span>Tímové výzvy, ktoré bavia aj tých, čo „na teambuildingy nechodia“.</span></div>
+          <div><b>Oheň a jedlo</b><span>Opekačka, guláš, posedenie do tmy pod horami.</span></div>
+          <div><b>Moderátor & tanec</b><span>Vediem program, roztancujem sálu aj lúku. Bez trápnych chvíľ.</span></div>
+        </div>
+        <a href="#kontakt" class="btn leather rv" data-pick="event">Chcem ponuku pre firmu
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="ev-photos rv">
+        <div class="ph p1"><img src="foto/kmetkone_mesto-16.jpg" data-name="kmetkone_mesto-16" onerror="fb(this)" alt="Koč pod smrekmi"></div>
+        <div class="ph p2"><img src="foto/tabor_august-6.jpg" data-name="tabor_august-6" onerror="fb(this)" alt="Skupina pri ohni"></div>
+        <div class="sticker">od 10 do 100 ľudí, napíšte koľko vás bude</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ADAM ================= -->
+<section class="sec adam" id="adam">
+  <div class="wrap adam-grid">
+    <div class="adam-photo rv">
+      <div class="ph"><img src="foto/kmetkone-20.jpg" data-name="kmetkone-20" onerror="fb(this)" alt="Adam Kmeť v klobúku so sivým koňom"></div>
+      <figure class="polaroid tape mini"><div class="ph"><img src="foto/kmetkone-24.jpg" data-name="kmetkone-24" onerror="fb(this)" alt="Ruky upravujú uzdu"></div><figcaption>detaily</figcaption></figure>
+    </div>
+    <div>
+      <span class="kicker rv">Kto za tým stojí</span>
+      <h2 class="display rv" style="margin-top:14px">Ahoj,<br>som <em>Adam.</em></h2>
+      <div class="roles rv"><span>tanečník</span><span>choreograf</span><span>moderátor</span><span>zabávač</span><span>chovateľ koní</span><span>jazdec</span></div>
+      <p class="rv">S tancom žijem dvadsať rokov, mikrofón ma baví a ľudí rád rozosmejem. Ale kone sú moja celoživotná vášeň – chovu a jazdectvu sa venujem od detstva.</p>
+      <p class="rv">Kone Kmeť je miesto, kde sa tie dva svety stretli. Na tábore sa smejeme, tancujeme a blázníme. Pri koňoch však platí jedno pravidlo: tam sa nežartuje. Bezpečnosť, pokoj a rešpekt k zvieraťu sú prvé, až potom zábava. A presne preto sa k nám rodičia vracajú.</p>
+      <p class="pull rv">Tanec a hudba sú pre každého. S koňmi to treba myslieť vážne.</p>
+      <span class="sign rv">Adam Kmeť</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= AKO TO FUNGUJE ================= -->
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="kicker rv">Ako to prebieha</span>
+        <h2 class="display rv" style="margin-top:14px">Tri kroky<br>a <em>ste v sedle.</em></h2>
+      </div>
+      <p class="lead rv">Žiadne zložité objednávky. Napíšete, ozvem sa osobne, všetko doladíme po ľudsky.</p>
+    </div>
+    <div class="steps">
+      <div class="step rv"><h3>Napíšte alebo zavolajte</h3><p>Stačí pár slov: čo chcete, kedy a pre koľkých. Formulár nižšie zaberie minútu.</p></div>
+      <div class="step rv"><h3>Ozvem sa do 24 hodín</h3><p>Prejdeme detaily, poradím, čo funguje, a pošlem jasnú cenu. Žiadne drobné písmo.</p></div>
+      <div class="step rv"><h3>Prídete si to užiť</h3><p>Kone sú pripravené, program beží. Vy si len vychutnávate deň.</p></div>
+    </div>
+    <div class="safety rv">
+      <div class="ph"><img src="foto/tabor_august-15.jpg" data-name="tabor_august-15" onerror="fb(this)" alt="Dieťa v jazdeckej prilbe a chrániči chrbta"></div>
+      <div>
+        <h4>Bezpečnosť nie je bonus</h4>
+        <p>Každé dieťa jazdí v prilbe a certifikovanom chrániči chrbta, vždy vo vedení alebo na lonži. Kone sú pokojné, zvyknuté na deti aj na ruch mesta. A ja som pri každej jazde osobne.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= KONTAKT ================= -->
+<section class="contact sec" id="kontakt">
+  <div class="ph bgimg" aria-hidden="true"><img src="foto/kmetkone-11.jpg" data-name="" onerror="this.parentElement.style.display='none'" alt=""></div>
+  <div class="wrap contact-grid">
+    <div>
+      <span class="kicker rv" style="color:var(--hay)">Kontakt</span>
+      <h2 class="display rv" style="margin-top:14px">Tak čo,<br><em>ideme</em><br>na to?</h2>
+      <p class="lead rv">Tábor pre dieťa, koč na svadbu, akcia pre firmu – alebo len otázka. Píšte, volajte. Odpovedám osobne.</p>
+      <div class="direct rv">
+        <!-- DOPLŇTE skutočné kontakty -->
+        <a href="tel:+421900000000">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></span>
+          <span><small>Zavolajte</small><b>+421 900 000 000</b></span>
+        </a>
+        <a href="mailto:info@konekmet.sk">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></span>
+          <span><small>Napíšte</small><b>info@konekmet.sk</b></span>
+        </a>
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#fff"/></svg></span>
+          <span><small>Sledujte kone</small><b>@konekmet</b></span>
+        </a>
+      </div>
+    </div>
+
+    <form class="card rv" id="form" novalidate>
+      <div id="formBody">
+        <h3>Napíšte Adamovi</h3>
+        <p class="sub">Vyberte, o čo máte záujem. Ozvem sa do 24 hodín.</p>
+        <div class="chips" role="radiogroup" aria-label="Záujem o">
+          <input type="radio" name="typ" id="t1" value="Detský tábor" data-key="tabor"><label for="t1">🐴 Tábor</label>
+          <input type="radio" name="typ" id="t2" value="Koč s koňmi" data-key="koc"><label for="t2">💍 Koč</label>
+          <input type="radio" name="typ" id="t3" value="Firemný event" data-key="event"><label for="t3">🔥 Firemný event</label>
+          <input type="radio" name="typ" id="t4" value="Iné" data-key="ine" checked><label for="t4">💬 Niečo iné</label>
+        </div>
+        <div class="fields">
+          <div class="field"><label for="meno">Meno *</label><input id="meno" name="meno" required autocomplete="name" placeholder="Ako vás oslovím"></div>
+          <div class="field"><label for="tel">Telefón</label><input id="tel" name="tel" type="tel" autocomplete="tel" placeholder="+421 …"></div>
+          <div class="field full"><label for="email">E-mail *</label><input id="email" name="email" type="email" required autocomplete="email" placeholder="vas@email.sk"></div>
+          <div class="field"><label for="datum" id="datumLbl">Termín</label><input id="datum" name="datum" placeholder="napr. jún 2027"></div>
+          <div class="field"><label for="pocet" id="pocetLbl">Počet osôb</label><input id="pocet" name="pocet" inputmode="numeric" placeholder="napr. 2"></div>
+          <div class="field full"><label for="sprava">Správa *</label><textarea id="sprava" name="sprava" required placeholder="Napíšte pár slov…"></textarea></div>
+        </div>
+        <button class="btn leather" type="submit">Odoslať Adamovi
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        <p class="form-note">Odoslaním súhlasíte so spracovaním údajov výhradne na účel odpovede.</p>
+      </div>
+      <div class="form-ok" id="formOk" role="status">
+        <b>Ďakujem! 🐎</b>
+        <p>Správa je na ceste. Ozvem sa čo najskôr.</p>
+      </div>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <img class="flogo" src="logo/konekmet-badge-white.png" alt="Kone Kmeť – jazdecký klub" width="700" height="608">
+      <nav>
+        <a href="#tabory">Tábory</a><a href="#koc">Koč</a><a href="#eventy">Eventy</a><a href="#adam">Adam</a><a href="#kontakt">Kontakt</a>
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a><a href="https://www.facebook.com/" target="_blank" rel="noopener">Facebook</a>
+      </nav>
+    </div>
+    <div class="copy"><span>© <span id="yr">2026</span> Kone Kmeť · Jazdecký klub · Turiec</span><span>Tábory · Koč s koňmi · Firemné eventy</span></div>
+  </div>
+</footer>
+
+<!-- mobilný CTA pruh -->
+<div class="mcta" id="mcta">
+  <a href="tel:+421900000000" class="btn light">Zavolať</a>
+  <a href="#kontakt" class="btn leather">Napísať</a>
+</div>
+
+<div class="lb" id="lb" aria-hidden="true"><img alt=""><p></p></div>
+
+<script>
+(function(){
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  /* reveal pri scrollovaní */
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{threshold:.12, rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.rv').forEach(function(el,i){
+    el.style.transitionDelay = (i % 4) * 70 + 'ms'; io.observe(el);
+  });
+
+  /* nav sa schová pri scrolle dole, mobilné CTA sa ukáže */
+  var last = 0, nav = document.getElementById('nav'), m = document.getElementById('mcta'), contact = document.getElementById('kontakt');
+  window.addEventListener('scroll', function(){
+    var y = window.scrollY;
+    nav.style.transform = (y > last && y > 300) ? 'translateY(-120%)' : 'none';
+    last = y;
+    var r = contact.getBoundingClientRect();
+    m.classList.toggle('on', y > 600 && r.top > window.innerHeight * .6);
+  }, {passive:true});
+
+  /* predvyplnenie formulára podľa toho, na čo ľudia klikli */
+  var hints = {
+    tabor:{d:'Turnus / mesiac', p:'Vek dieťaťa', msg:'Dobrý deň, mám záujem o letný tábor pre moje dieťa.'},
+    koc:{d:'Dátum akcie', p:'Miesto akcie', msg:'Dobrý deň, rád/a by som si rezervoval/a koč s koňmi na '},
+    event:{d:'Predbežný termín', p:'Počet ľudí', msg:'Dobrý deň, plánujeme firemnú akciu a zaujíma nás '},
+    ine:{d:'Termín', p:'Počet osôb', msg:''}
+  };
+  function pick(key){
+    var r = document.querySelector('.chips input[data-key="'+key+'"]'); if(!r) return;
+    r.checked = true; apply(key);
+  }
+  function apply(key){
+    var h = hints[key]; if(!h) return;
+    document.getElementById('datumLbl').textContent = h.d;
+    document.getElementById('pocetLbl').textContent = h.p;
+    var t = document.getElementById('sprava');
+    if(!t.dataset.touched) t.value = h.msg;
+  }
+  document.querySelectorAll('[data-pick]').forEach(function(a){
+    a.addEventListener('click', function(){ pick(a.getAttribute('data-pick')); });
+  });
+  document.querySelectorAll('.chips input').forEach(function(r){
+    r.addEventListener('change', function(){ apply(r.dataset.key); });
+  });
+  document.getElementById('sprava').addEventListener('input', function(){ this.dataset.touched = 1; });
+
+  /* odoslanie: FORM_ENDPOINT napojte na Formspree / WPForms / vlastný backend.
+     Kým nie je nastavený, otvorí sa e-mail s predvyplnenou správou. */
+  var FORM_ENDPOINT = '';
+  var MAIL = 'info@konekmet.sk';
+  document.getElementById('form').addEventListener('submit', function(e){
+    e.preventDefault();
+    var f = e.target, ok = true;
+    ['meno','email','sprava'].forEach(function(id){
+      var el = f.querySelector('#'+id), bad = !el.value.trim() || (id==='email' && !/.+@.+\..+/.test(el.value));
+      el.style.borderColor = bad ? '#d6452c' : ''; if(bad) ok = false;
+    });
+    if(!ok) return;
+    var typ = f.querySelector('input[name="typ"]:checked').value;
+    var data = new FormData(f);
+    var done = function(){ document.getElementById('formBody').style.display='none'; document.getElementById('formOk').style.display='block'; };
+    if(FORM_ENDPOINT){
+      fetch(FORM_ENDPOINT,{method:'POST',body:data,headers:{'Accept':'application/json'}}).then(done).catch(done);
+    } else {
+      var body = 'Záujem: '+typ+'\nMeno: '+data.get('meno')+'\nTelefón: '+data.get('tel')+'\nE-mail: '+data.get('email')+
+                 '\n'+document.getElementById('datumLbl').textContent+': '+data.get('datum')+
+                 '\n'+document.getElementById('pocetLbl').textContent+': '+data.get('pocet')+'\n\n'+data.get('sprava');
+      window.location.href = 'mailto:'+MAIL+'?subject='+encodeURIComponent('Kone Kmeť – '+typ)+'&body='+encodeURIComponent(body);
+      done();
+    }
+  });
+
+  /* filmový pás – šípky */
+  var strip = document.getElementById('strip');
+  document.querySelectorAll('.strip-nav button').forEach(function(b){
+    b.addEventListener('click', function(){ strip.scrollBy({left: +b.dataset.dir * strip.clientWidth * .8, behavior:'smooth'}); });
+  });
+
+  /* lightbox */
+  var lb = document.getElementById('lb');
+  strip.querySelectorAll('.polaroid').forEach(function(p){
+    p.addEventListener('click', function(){
+      var img = p.querySelector('img'); if(p.querySelector('.missing')) return;
+      lb.querySelector('img').src = img.currentSrc || img.src;
+      lb.querySelector('p').textContent = p.querySelector('figcaption').textContent;
+      lb.classList.add('on');
+    });
+  });
+  lb.addEventListener('click', function(){ lb.classList.remove('on'); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') lb.classList.remove('on'); });
+
+  /* video: pauza/play + pauza mimo obrazovky */
+  var v = document.getElementById('loop'), tg = document.getElementById('vtoggle');
+  var pauseIcon = tg.innerHTML, playIcon = '<svg width="20" height="20" viewBox="0 0 24 24" fill="#23231a"><path d="M7 5l12 7-12 7z"/></svg>';
+  var srcs = v.querySelectorAll('source');
+  srcs[srcs.length-1].addEventListener('error', function(){ v.style.display='none'; tg.style.display='none'; });
+  tg.addEventListener('click', function(){
+    if(v.paused){ v.play(); tg.innerHTML = pauseIcon; tg.setAttribute('aria-label','Pozastaviť video'); }
+    else { v.pause(); tg.innerHTML = playIcon; tg.setAttribute('aria-label','Prehrať video'); }
+  });
+  new IntersectionObserver(function(es){ es.forEach(function(e){ if(!e.isIntersecting) v.pause(); else if(tg.getAttribute('aria-label')==='Pozastaviť video') v.play().catch(function(){}); }); }).observe(v);
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches){ v.removeAttribute('autoplay'); v.pause(); }
+})();
+</script>
+</body>
+</html>
